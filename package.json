@@ -1,0 +1,22 @@
+{
+  "name": "taskapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishsingh2601/taskApp.git"
+  },
+  "author": "Ashish Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishsingh2601/taskApp/issues"
+  },
+  "homepage": "https://github.com/ashishsingh2601/taskApp#readme",
+  "dependencies": {
+    "mongodb": "^3.5.8"
+  }
+}
