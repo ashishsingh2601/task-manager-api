@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ashishsingh2601/taskApp#readme",
   "dependencies": {
-    "mongodb": "^3.5.8"
+    "mongodb": "^3.5.8",
+    "mongoose": "^5.9.18"
   }
 }
