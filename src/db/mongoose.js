@@ -1,7 +1,8 @@
 //jshint esversion:6
+//This file is used only for connecting with database.
 
 const mongoose = require('mongoose');
-const validator = require('validator');
+//const validator = require('validator');
 
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
     useNewUrlParser: true,
@@ -11,43 +12,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
 
 //Defining model
 
-const User = mongoose.model('User', {
-        name: {
-            type: String,
-            required: true,
-            trim: true
-        },
-        email: {
-            type: String,
-            required: true,
-            trim: true,
-            lowercase: true,
-            validate(value){
-                if(!validator.isEmail(value)){
-                    throw new Error('Invalid E-mail');
-                }
-            }
-        },
-        password: {
-            type: String,
-            required: true,
-            trim: true,
-            minLength: 7,
-            validate(value){
-                if(value.toLowerCase().includes('password'))
-                throw new Error("Password cannot contain 'password' ");
-            }
-        },
-        age: {
-            type: Number,
-            default: 0,
-            validate(value){
-                if(value<0){
-                    throw new Error('Age must be a positive number');
-                }
-            }
-        }
-});
 
 // const me = new User({
 //     name: 'Ashish',
@@ -62,25 +26,14 @@ const User = mongoose.model('User', {
 //     console.log(error);
 // });
 
-const Tasks = mongoose.model('Tasks', {
-    description: {
-        type: String,
-        trim: true,
-        required: true
-    },
-    completed: {
-        type: Boolean,
-        default: false
-    }
-});
 
-const task = new Tasks({
-    description: 'Plant Trees',
-    completed: true
-});
+// const task = new Tasks({
+//     description: 'Plant Trees',
+//     completed: true
+// });
 
-task.save().then((task)=>{
-    console.log(task);
-}).catch((error)=>{
-    console.log(error);
-});
+// task.save().then((task)=>{
+//     console.log(task);
+// }).catch((error)=>{
+//     console.log(error);
+// });
