@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
     useNewUrlParser: true,
     useUnifiedTopology: true,  
-    useCreateIndex: true                        //Ensures that indexes are created when mongoose works with mongoDB making data access easier.
+    useCreateIndex: true,                  //Ensures that indexes are created when mongoose works with mongoDB making data access easier.
+    useFindAndModify: false
 });
 
 //Defining model
