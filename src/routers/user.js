@@ -45,6 +45,30 @@ router.post('/users/login', async (req, res)=>{
     }
 });
 
+//Logout route
+router.post('/users/logout', auth, async(req, res)=>{
+    try{
+        req.user.tokens = req.user.tokens.filter((token)=>{
+            return token.token !== req.token;
+        });
+        await req.user.save();
+        res.send();
+    }catch(e){
+        res.status(500).send(e);
+    }
+});
+
+//LogoutAll route
+router.post('/users/logoutAll', auth, async(req, res)=>{
+    try{
+        req.user.tokens = [];                   //Emptying the tokens array
+        await req.user.save();
+        res.send();
+    }catch(e){
+        res.status(500).send(e);
+    }
+});
+
 //Reading multiple users
 router.get('/users/me', auth, async (req, res)=>{
    
