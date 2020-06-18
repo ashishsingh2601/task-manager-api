@@ -1,12 +1,17 @@
-//jshint esversion:8
+//jshint esversion:9
 
 const express = require('express');
 const router = new express.Router();
 const Tasks = require('../models/task');
+const auth = require('../middleware/authentication');
 
-router.post('/tasks', async (req, res)=>{
-    const task = new Tasks(req.body);
 
+router.post('/tasks', auth, async (req, res)=>{
+    //const task = new Tasks(req.body);
+    const task = new Tasks({
+        ...req.body,
+        owner: req.user._id
+    });
     try{
         await task.save();
         res.status(201).send(task);
