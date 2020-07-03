@@ -18,6 +18,19 @@ const port = process.env.PORT || 3000;
 //     res.status(503).send('Site is currently down, check back soon!');
 // });
 
+// const multer = require('multer');
+// const upload = multer({
+//     dest: 'images',
+//     limits: {
+//         fileSize: 1000000
+//     },
+//     fileFilter(req, file, callback){
+//         callback(new Error)
+//     }
+// });
+// app.post('/upload', upload.single('upload'), (req, res)=>{
+//     res.send();
+// });
 
 app.use(express.json());                            //Configuring express to automatically parse the incoming JSON into object
 app.use(userRouter);                                //Registering user router
@@ -28,19 +41,3 @@ app.listen(port, ()=>{
     console.log('Server is up on port ' + port);
 });
 
-// const Tasks = require('./models/task');
-// const User = require('./models/user');
-
-// const main = async() => {
-// //     const task = await Task.findById('5efc42f8aa41dd57940bcc4e');
-// //     await task.populate('owner').execPopulate();
-// //     console.log(task.owner);
-    
-//     const user = await User.findById('5efc42d9aa41dd57940bcc4c');
-//     await user.populate('tasks').execPopulate();
-//     console.log(user.tasks);
-
-
-// };
-
-// main();
