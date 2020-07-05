@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ashishsingh2601/taskApp#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.2.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
