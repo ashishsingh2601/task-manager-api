@@ -150,3 +150,5 @@ Session.vim
 .netrwhist
 # auto-generated tag files
 tags
+# contains environment variables
+config/

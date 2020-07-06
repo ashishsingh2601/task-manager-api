@@ -1,9 +1,7 @@
 //jshint esversion:9
 
 const sgMail = require('@sendgrid/mail');
-const sendgridAPIKey = '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';
-
-sgMail.setApiKey(sendgridAPIKey);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // sgMail.send({
 //     to: 'as7220004@gmail.com',
@@ -18,6 +16,10 @@ const sendWelcomeEmail = (email, name)=>{
         from: 'as7220004@gmail.com',
         subject: 'Welcome! Thanks for believing in us.',
         text: `Hey, ${name}. Welcome! wonders are awaiting for you.`,
+    }).then(()=>{
+        console.log('Message sent successfully!');
+    }).catch((error)=>{
+        console.log(error.response.body);
     });
 };
 
@@ -27,6 +29,10 @@ const sendCancelationEmail = (email, name)=>{
         from: 'as722000@gmail.com',
         subject: 'Bye-Bye! you betrayed.',
         text: `Goodbye, ${name}, as you've decided to leave do let us know where we went wrong.`
+    }).then(()=>{
+        console.log('Message sent successfully!');
+    }).catch((error)=>{
+        console.log(error.response.body);
     });
 };
 
